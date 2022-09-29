@@ -1,0 +1,65 @@
+﻿@model List<CriasApp.Models.Cria>
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Bienvenido</h1>
+    <p>Esta aplicacion web para el registro de crias!</p>
+</div>
+
+<div class="card">
+    <div class="card-header">
+        <h5>Lista de Crias</h5>
+    </div>
+    <div class="card-body">
+        <a class="btn btn-success " asp-action="Cria_Detalle" asp-controller="Home" asp-route-Id="0">Añadir Cria Nueva</a>
+    </div>
+    <hr/>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Peso</th>
+                <th>Costo</th>
+                <th>Proveedor</th>
+                <th>Fecha</th>
+                <th>Estado</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Nombre</td>
+                    <td>@item.Peso</td>
+                    <td>@item.Costo</td>
+                    <td>@item.oProveedor.Nombre</td>
+                    <td>@item.Fecha</td>
+                    @if (item.Estado == false)
+                    {
+                         <td class="border-success">
+                             Libre
+                         </td>
+                    }
+                    else
+                    {
+                        <td class="border-danger">
+                            En cuarentena
+                        </td>
+                    }
+                        
+                        
+                    
+                    <td>
+                        <a class="btn btn-primary btn-sm"asp-action="Cria_Detalle" asp-controller="Home" asp-route-Id="@item.Id">Editar</a>
+                        <a class="btn btn-danger btn-sm" asp-action="Eliminar" asp-controller="Home" asp-route-Id="@item.Id">Eliminar</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+
+    </table>
+
+
+</div>
