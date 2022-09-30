@@ -1,0 +1,55 @@
+﻿@model CriasApp.Models.ViewModels.CriaViewModel
+@{
+    ViewData["Title"] = "Sensores";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+
+    <h1>Editar Sensores de @Model.oCria.Nombre</h1>
+
+
+
+
+<div class="row">
+    <div class="col-sm-4">
+        <form asp-action="Sensores" asp-controller="Home" method="post">
+            <input type="hidden" asp-for="oCria.Id" />
+
+            <div class="mb-2">
+                <label class="form-label" asp-for=oSensores.FreCardiaca>Frecuencia Cardiaca</label>
+                <input class="form-control form-control-sm" asp-for="oSensores.FreCardiaca" type="text" />
+            </div>
+
+            <div class="mb-2">
+                <label class="form-label" asp-for=oSensores.PreSanguinea>Presion Sanguinea</label>
+                <input class="form-control form-control-sm" asp-for="oSensores.PreSanguinea" type="text" />
+            </div>
+
+            <div class="mb-2">
+                <label class="form-label" asp-for=oSensores.FreRespiratoria>Frecuencia Respiratoria</label>
+                <input class="form-control form-control-sm" asp-for="oSensores.FreRespiratoria" type="text" />
+            </div>
+
+             <div class="mb-2">
+                <label class="form-label" asp-for=oSensores.Temperatura>Temperatura</label>
+                <input class="form-control form-control-sm" asp-for="oSensores.Temperatura" type="text" />
+            </div>
+          
+
+            <div class="mb-2">
+                
+                    <button class="btn btn-success  w-25" type="submit">Actualizar</button>
+               
+               
+
+                <a class="btn btn-dark w-25 m-4" asp-action="Index" asp-controller="Home">Volver</a>
+            </div>
+
+
+
+        </form>
+
+    </div>
+</div>

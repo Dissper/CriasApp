@@ -1,0 +1,62 @@
+﻿@model CriasApp.Models.Cria
+@{
+    ViewData["Title"] = "Eliminar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h3 class="text-danger">Desea eliminar la cria?</h3>
+
+<div class="row">
+    <div class="col-sm-4">
+        <form asp-action="Eliminar" asp-controller="Home" method="post">
+            <input type="hidden" asp-for="Id" />
+
+            <div class="mb-2">
+                <label class="form-label" asp-for=Nombre>Nombre de la cria</label>
+                <input class="form-control form-control-sm" asp-for="Nombre" type="text" disabled />
+            </div>
+
+            <div class="mb-2">
+                <label class="form-label" asp-for=Peso>Peso</label>
+                <input class="form-control form-control-sm" asp-for="Peso" type="text" disabled />
+            </div>
+
+            <div class="mb-2">
+                <label class="form-label" asp-for=Costo>Costo</label>
+                <input class="form-control form-control-sm" asp-for="Costo" type="text" disabled />
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label" asp-for=IdProveedor>Proveedor</label>
+                <input class="form-control form-control-sm" asp-for="oProveedor.Nombre" type="text" disabled />
+            </div>
+
+           
+                
+            @if (Model.Estado == false)
+            {
+               <label class="text-success">Libre</label>
+            }
+            else
+            {
+                <label class="text-danger">En cuarentena</label>
+            }
+
+         
+
+            <div class="mb-2">
+                
+                
+               <button class="btn btn-danger  w-25" type="submit">Eliminar</button>
+                
+              
+
+                <a class="btn btn-dark w-25 m-4" asp-action="Index" asp-controller="Home">Volver</a>
+            </div>
+
+
+
+        </form>
+
+    </div>
+</div>

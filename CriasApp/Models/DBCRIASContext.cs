@@ -58,6 +58,10 @@ namespace CriasApp.Models
                     .WithMany(p => p.Cria)
                     .HasForeignKey(d => d.IdSensores)
                     .HasConstraintName("FK_Sensores");
+
+                 
+    
+
             });
 
             modelBuilder.Entity<Proveedor>(entity =>
@@ -72,6 +76,8 @@ namespace CriasApp.Models
             modelBuilder.Entity<Sensores>(entity =>
             {
                 entity.ToTable("SENSORES");
+
+
             });
 
             OnModelCreatingPartial(modelBuilder);

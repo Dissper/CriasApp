@@ -8,7 +8,7 @@ namespace CriasApp.Models.ViewModels
         public Cria oCria { get; set; }
         public List<SelectListItem> oListaProveedor { get; set; }
 
-        
+        public Sensores oSensores { get; set; }
 
     }
 }

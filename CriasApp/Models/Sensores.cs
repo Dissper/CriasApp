@@ -11,10 +11,11 @@ namespace CriasApp.Models
         }
 
         public int Id { get; set; }
-        public double? FreCardiaca { get; set; }
-        public double? PreSanguinea { get; set; }
-        public double? FreRespiratoria { get; set; }
-        public double? Temperatura { get; set; }
+        public double? FreCardiaca { get; set; } = 0;
+        public double? PreSanguinea { get; set; } = 0;
+        public double? FreRespiratoria { get; set; } = 0;
+        public double? Temperatura { get; set; } = 0;
+        public int IdCria { get; set; }
 
         public virtual ICollection<Cria> Cria { get; set; }
     }
