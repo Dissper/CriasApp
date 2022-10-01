@@ -49,6 +49,10 @@ namespace CriasApp.Models
                     .IsRequired()
                     .HasColumnType("bit(1)");
 
+                entity.Property(e => e.Clasificacion)
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
                 entity.HasOne(d => d.oProveedor)
                     .WithMany(p => p.Cria)
                     .HasForeignKey(d => d.IdProveedor)

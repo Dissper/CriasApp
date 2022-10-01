@@ -48,7 +48,29 @@
             </div>
 
 
+            <h4>Clasificacion</h4>
 
+            @if (Model.oCria.Clasificacion == "Cria saludable")
+            {
+
+                 <p class="text-success" style="font-size:32px">Cria saludable</p>
+
+            }
+            else if (Model.oCria.Clasificacion == "Cria por enfermar")
+            {
+                <p class="text-danger" style="font-size:32px">Cria por enfermar</p>
+            }else
+            {
+                <p>No clasificada</p>
+            }
+            
+                
+               
+            
+            
+            
+                
+            
         </form>
 
     </div>

@@ -14,8 +14,9 @@ namespace CriasApp.Models
         public bool? Estado { get; set; } = false;
         public int? IdProveedor { get; set; }
         public int? IdSensores { get; set; }
-
+        public string? Clasificacion { get; set; } = "No clasificado";
         public virtual Proveedor? oProveedor { get; set; }
         public virtual Sensores? oSensores { get; set; }
+        
     }
 }

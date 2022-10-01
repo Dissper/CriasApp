@@ -103,13 +103,32 @@ namespace CriasApp.Controllers
             };
 
 
+
+
             if (Id != 0)
             {
                 Sensores oSensores = _ContextDB.Sensores.Where(e => e.IdCria == Id).OrderBy(p => p.Id).LastOrDefault();
                 criaViewModel.oCria = _ContextDB.Cria.Find(Id);
                 criaViewModel.oSensores = oSensores;
 
+                if (oSensores == null)
+                {
+                    Sensores sensores = new Sensores() { Temperatura = 0 };
+                    criaViewModel.oSensores = sensores;
+                }
+
+                if (criaViewModel.oSensores.Temperatura >= 37.5 && criaViewModel.oSensores.Temperatura <= 39.5  )
+                {
+                    criaViewModel.oCria.Clasificacion = "Cria saludable";
+                }
+                else
+                {
+                    criaViewModel.oCria.Clasificacion = "Cria por enfermar";
+                }
+
             }
+
+           
 
             return View(criaViewModel);
 
@@ -122,17 +141,27 @@ namespace CriasApp.Controllers
         public IActionResult Sensores( CriaViewModel criaViewModel)
         {
 
+            if (criaViewModel.oSensores.Temperatura >= 37.5 && criaViewModel.oSensores.Temperatura <= 39.5)
+            {
+                criaViewModel.oCria.Clasificacion = "Cria saludable";
+                
+            }
+            else
+            {
+                ViewBag.Clasificacion = "Cria por enfermar";
+            }
 
-            
-            
-            
-                criaViewModel.oSensores.IdCria = criaViewModel.oCria.Id;
+
+
+            criaViewModel.oSensores.IdCria = criaViewModel.oCria.Id;
             _ContextDB.Sensores.Update(criaViewModel.oSensores);
 
-                
+
             
             
-            
+
+
+
 
             _ContextDB.SaveChanges();
 

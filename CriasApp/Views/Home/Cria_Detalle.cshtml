@@ -21,22 +21,22 @@ else
 
             <div class="mb-2">
                 <label class="form-label" asp-for=oCria.Nombre>Nombre de la cria</label>
-                <input class="form-control form-control-sm" asp-for="oCria.Nombre" type="text"/>
+                <input class="form-control form-control-sm" asp-for="oCria.Nombre" type="text" required/>
             </div>
 
             <div class="mb-2">
                 <label class="form-label" asp-for=oCria.Peso>Peso</label>
-                <input class="form-control form-control-sm" asp-for="oCria.Peso" type="text" />
+                <input class="form-control form-control-sm" asp-for="oCria.Peso" type="text" required />
             </div>
 
             <div class="mb-2">
                 <label class="form-label" asp-for=oCria.Costo>Costo</label>
-                <input class="form-control form-control-sm" asp-for="oCria.Costo" type="text" />
+                <input class="form-control form-control-sm" asp-for="oCria.Costo" type="text" required />
             </div>
 
             <div class="mb-3">
                 <label class="form-label" asp-for=oCria.IdProveedor>Proveedor</label>
-                <select class="form-select form-select-sm" asp-for="oCria.IdProveedor" asp-items="@Model.oListaProveedor">
+                <select class="form-select form-select-sm" asp-for="oCria.IdProveedor" asp-items="@Model.oListaProveedor" required>
                     <option selected disabled>-- Seleccionar --</option>
                 </select>
             </div>
